@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Portal</title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+	
+
+<link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
+	<!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    
+  </head>
+  <body>
+
+  <div class="navbar navbar-inverse navbar-static-top">
+  <!--<h4 class="white">Haus kugla</h4>-->
+  <div class = "container">
+  <a href = "#" class = "navbar-brand"><h4 class="white">Haus Mauss</h4></a>
+  
+  <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+                                        <span class = "icon-bar"></span>
+                                        <span class = "icon-bar"></span>
+                                        <span class = "icon-bar"></span>
+                                </button>
+                               
+                                <div class = "collapse navbar-collapse navHeaderCollapse">
+                               
+                                        <ul class = "nav navbar-nav navbar-right">
+		
+		<li class = "active"><a href = "#">Home</a></li>
+                                                <li><a href = "#">Blog</a></li>
+                                                <li class = "dropdown">
+                                                       
+                                                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Social Media <b class = "caret"></b></a>
+                                                        <ul class = "dropdown-menu">
+                                                                <li><a href = "#">Twitter</a></li>
+                                                                <li><a href = "#">Facebook</a></li>
+                                                                <li><a href = "#">Google+</a></li>
+                                                                <li><a href = "#">Instagram</a></li>
+		</ul>
+		</li>
+                                                <li><a href = "#">About</a></li>
+                                                <li><a href = "#">Contact</a></li>
+                                       
+                                        </ul>
+		
+		
+			</div>
+  </div>
+</div>
+
+  <div class="col-sm-3 col-md-3 ">
+  <div class="jumbotronx">
+		<div id="weather"></div>
+			 </div>
+		</div>
+	  
+	<div class="col-sm-3 col-md-3">
+	<div class="jumbotronx other2-color">
+	<h2 class="white"><span class="glyphicon glyphicon-home"></h2>
+	<h1 class="white"><span id="myelement"></span>°</h1>
+		 </div>
+		</div>
+		<div class="col-sm-3 col-md-3">
+	<div class="jumbotronx other5-color">
+	<h2 class="white"><span class="glyphicon glyphicon-tint"></h2><h1 class="white"><span id="myelement2"></span></h1>
+		 </div>
+		</div>
+	
+	<div class="col-sm-3 col-md-3">
+	<div class="jumbotronx other4-color">
+	<h2 class="white"><span class="glyphicon glyphicon-upload"></h2><h1 class="white"><span id="myelement3"></span></h1>
+		 </div>
+		</div>
+		
+	<div class="col-sm-3 col-md-3">
+	<div class="jumbotronx other-color">
+	<h2 class="white"><span class="glyphicon glyphicon-certificate"></h2><h1 class="white"><span id="myelement4"></span></h1>
+			 </div>
+		</div>	
+ 
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
+<script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/jquery.simpleWeather.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<script type="text/javascript"> $(document).ready(function() {
+  $.simpleWeather({
+    location: 'Maribor',
+    woeid: '',
+    unit: 'c',
+    success: function(weather) {
+        
+	  html =  '<h1><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+'</h1>';
+	  html += '<h2>'+weather.city+'</h2>';
+      html += '<p>'+weather.currently+'</p>';
+	  html += '<p>'+weather.low+'&deg;'+' / '+weather.high+'&deg;'+'</p>';
+    
+	/*for(var i=0;i<weather.forecast.length-2;i++) {
+        html += '<h3>'+weather.forecast[i].day+' '+weather.forecast[i].high+'&deg;'+'</h3>';
+		
+      }*/	
+	
+      $("#weather").html(html);
+    },
+    error: function(error) {
+      $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+});
+</script>
+<script>
+
+    // Make sure the document is ready to be handled
+    $(document).ready(function($) {
+
+      // Set the Xively API key (https://xively.com/users/YOUR_USERNAME/keys)
+      xively.setKey( "Vda1myZDPpFLf7zrktfsbPMR33VLJkSEePUHw0ExvqDBRNse" );
+
+      // Replace with your own values
+      var feedID = 1926706524, // Feed ID (the last number on the URL on the feed page on Xively)
+          datastreamID = "Temperature"; // Datastream ID
+          selector = "#myelement"; // Your element on the page - takes any valid jQuery selector
+
+// Replace with your own values
+      var feedID2 = 1926706524, // Feed ID (the last number on the URL on the feed page on Xively)
+          datastreamID2 = "Humidity"; // Datastream ID
+          selector2 = "#myelement2"; // Your element on the page - takes any valid jQuery selector
+
+var feedID3 = 1926706524, // Feed ID (the last number on the URL on the feed page on Xively)
+          datastreamID3 = "Pressure"; // Datastream ID
+          selector3 = "#myelement3"; // Your element on the page - takes any valid jQuery selector
+
+var feedID4 = 1926706524, // Feed ID (the last number on the URL on the feed page on Xively)
+          datastreamID4 = "Light"; // Datastream ID
+          selector4 = "#myelement4"; // Your element on the page - takes any valid jQuery selector
+
+      // Get datastream data from Xively
+      xively.datastream.get (feedID, datastreamID, function ( datastream ) {
+        // WARNING: This code is only executed when we get a response back from Xively, it will likely execute after the rest your script
+        // NOTE: The variable "datastream" will contain all the Datastream information as an object. The structure of Datastream objects can be found at:
+        // https://xively.com/dev/docs/api/quick_reference/api_resource_attributes/#datastream
+
+
+        // Display the current value from the datastream
+        $(selector).html( datastream["current_value"] );
+
+        // Getting realtime! The function associated with the subscribe method will be executed every time there is an update to the datastream
+        xively.datastream.subscribe( feedID, datastreamID, function ( event , datastream_updated ) {
+          // Display the current value from the updated datastream
+          $(selector).html( datastream_updated["current_value"] );
+        });
+
+      });
+
+xively.datastream.get (feedID2, datastreamID2, function ( datastream ) {
+        // WARNING: This code is only executed when we get a response back from Xively, it will likely execute after the rest your script
+        // NOTE: The variable "datastream" will contain all the Datastream information as an object. The structure of Datastream objects can be found at:
+        // https://xively.com/dev/docs/api/quick_reference/api_resource_attributes/#datastream
+
+
+        // Display the current value from the datastream
+        $(selector2).html( datastream["current_value"] );
+
+        // Getting realtime! The function associated with the subscribe method will be executed every time there is an update to the datastream
+        xively.datastream.subscribe( feedID2, datastreamID2, function ( event , datastream_updated ) {
+          // Display the current value from the updated datastream
+          $(selector2).html( datastream_updated["current_value"] );
+        });
+
+      });
+
+
+
+xively.datastream.get (feedID3, datastreamID3, function ( datastream ) {
+        // WARNING: This code is only executed when we get a response back from Xively, it will likely execute after the rest your script
+        // NOTE: The variable "datastream" will contain all the Datastream information as an object. The structure of Datastream objects can be found at:
+        // https://xively.com/dev/docs/api/quick_reference/api_resource_attributes/#datastream
+
+
+        // Display the current value from the datastream
+        $(selector3).html( datastream["current_value"] );
+
+        // Getting realtime! The function associated with the subscribe method will be executed every time there is an update to the datastream
+        xively.datastream.subscribe( feedID3, datastreamID3, function ( event , datastream_updated ) {
+          // Display the current value from the updated datastream
+          $(selector3).html( datastream_updated["current_value"] );
+        });
+
+      });
+
+
+
+// Get datastream data from Xively
+      xively.datastream.get (feedID4, datastreamID4, function ( datastream ) {
+        // WARNING: This code is only executed when we get a response back from Xively, it will likely execute after the rest your script
+        // NOTE: The variable "datastream" will contain all the Datastream information as an object. The structure of Datastream objects can be found at:
+        // https://xively.com/dev/docs/api/quick_reference/api_resource_attributes/#datastream
+
+
+        // Display the current value from the datastream
+        $(selector4).html( datastream["current_value"] );
+
+        // Getting realtime! The function associated with the subscribe method will be executed every time there is an update to the datastream
+        xively.datastream.subscribe( feedID4, datastreamID4, function ( event , datastream_updated ) {
+          // Display the current value from the updated datastream
+          $(selector4).html( datastream_updated["current_value"] );
+        });
+
+      });
+
+
+      // WARNING: Code here will continue executing while we get the datastream data from Xively, use the function associated with datastream.get to work with the data, when the request is complete
+    });
+  </script>
+  </body>
+  </html>
