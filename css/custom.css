@@ -74,7 +74,7 @@ i {
 .icon-33:before { content: "6"; }
 .icon-34:before { content: "1"; }
 .icon-35:before { content: "W"; }
-.icon-36:before { content: "1"; }
+#weather h1.icon-.icon-36:before { content: "1"; }
 .icon-37:before { content: "S"; }
 .icon-38:before { content: "S"; }
 .icon-39:before { content: "S"; }
